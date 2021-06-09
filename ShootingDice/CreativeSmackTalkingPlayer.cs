@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 
 namespace ShootingDice
 {
@@ -17,7 +18,8 @@ namespace ShootingDice
 
         public override void Play(Player other)
         {
-
+            int num = new Random().Next(5);
+            Console.WriteLine(taunts[num]);
             base.Play(other);
         }
 

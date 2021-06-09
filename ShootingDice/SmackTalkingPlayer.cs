@@ -1,3 +1,5 @@
+using System;
+
 namespace ShootingDice
 {
     // TODO: Complete this class
@@ -6,6 +8,12 @@ namespace ShootingDice
     public class SmackTalkingPlayer : Player
     {
         public string Taunt { get; } = "I'm just looking around to see whos gonna come in second";
+
+        public override void Play(Player other)
+        {
+            Console.WriteLine(Taunt);
+            base.Play(other);
+        }
 
     }
 }
