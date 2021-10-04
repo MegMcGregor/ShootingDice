@@ -32,32 +32,60 @@ namespace ShootingDice
             Player player2 = new Player();
             player2.Name = "Sue";
 
-            UpperHalfLoser.Play(player1);
 
-            player2.Play(player1);
+            //////////////////////////////////////////////////////////////////
+            bool shootDice = true;
+            do
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
 
-            Console.WriteLine("-------------------");
+                Console.WriteLine("N E W  G A M E");
+                Console.WriteLine("-------------------");
+                Console.ResetColor();
 
-            Player player3 = new Player();
-            player3.Name = "Wilma";
+                UpperHalfLoser.Play(player1);
 
-            player3.Play(player2);
+                Console.WriteLine("-------------------");
 
-            Console.WriteLine("-------------------");
+                player2.Play(player1);
 
-            Player large = new LargeDicePlayer();
-            large.Name = "Bigun Rollsalot";
+                Console.WriteLine("-------------------");
 
-            player1.Play(large);
+                Player player3 = new Player();
+                player3.Name = "Wilma";
 
-            Console.WriteLine("-------------------");
+                player3.Play(player2);
 
-            List<Player> players = new List<Player>() {
+                Console.WriteLine("-------------------");
+
+                Player large = new LargeDicePlayer();
+                large.Name = "Bigun Rollsalot";
+
+                player1.Play(large);
+
+                Console.WriteLine("-------------------");
+
+                List<Player> players = new List<Player>() {
                 Human, SmackTalker, OneHigher, Creative, UpperHalf, UpperHalfLoser
-            };
+             };
+                PlayMany(players);
 
-            PlayMany(players);
+                Console.WriteLine("Would you like to play again? (Y/N): ");
+
+                string replayAnswer = Console.ReadLine().ToLower();
+
+                if (replayAnswer == "y")
+                {
+                    shootDice = true;
+                }
+                else
+                {
+                    shootDice = false;
+                }
+            }
+            while (shootDice);
         }
+
 
         static void PlayMany(List<Player> players)
         {
@@ -88,5 +116,9 @@ namespace ShootingDice
                 player1.Play(player2);
             }
         }
+
+
+
+
     }
 }
